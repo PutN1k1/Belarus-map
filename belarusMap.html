@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта Беларуси с областными центрами</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=1cc2f52a-9cd8-4078-bd24-bd38f1446679&lang=ru_RU" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.png" type="image/png">
+</head>
+<body>
+    <div id="route-container">
+        <div id="start-point" class="route-point" onclick="toggleDropdown(this)">
+            <div class="point-circle red"></div> <!-- Красная метка -->
+            <div class="selected-point">Откуда</div>
+        </div>
+    
+        <!-- Промежуточные точки -->
+        <div class="route-point intermediate-point" style="display:none;" onclick="toggleDropdown(this)">
+            <div class="point-circle green"></div> <!-- Зеленая метка -->
+            <div class="selected-point">Промежуточная точка</div>
+        </div>
+    
+        <div class="route-point intermediate-point" style="display:none;" onclick="toggleDropdown(this)">
+            <div class="point-circle green"></div> <!-- Зеленая метка -->
+            <div class="selected-point">Промежуточная точка</div>
+        </div>
+    
+        <div class="route-point intermediate-point" style="display:none;" onclick="toggleDropdown(this)">
+            <div class="point-circle green"></div> <!-- Зеленая метка -->
+            <div class="selected-point">Промежуточная точка</div>
+        </div>
+    
+        <div id="end-point" class="route-point" onclick="toggleDropdown(this)">
+            <div class="point-circle blue"></div> <!-- Синяя метка -->
+            <div class="selected-point">Куда</div>
+        </div>    
+
+        <!-- Выпадающий список для всех точек маршрута -->
+        <div class="dropdown" id="shared-dropdown">
+            <input type="text" placeholder="Поиск точек..." onkeyup="filterList(this)">
+            <ul id="dropdown-list">
+                <!-- Здесь будут добавлены метки -->
+            </ul>
+        </div>
+
+        <!-- Кнопки Добавить и Сбросить -->
+        <div class="buttons-container">
+            <button id="add-point"><strong>Добавить точку</strong></button>
+            <button id="reset-points"><strong>Сбросить точки</strong></button>
+        </div>
+    </div>
+
+    <div id="map-container">
+        <div id="left-space"></div> <!-- Левая часть экрана -->
+        <div id="map"></div> <!-- Карта -->
+        <!-- Окно для информации -->
+        <div id="info-window">
+            <button id="close-info">&times;</button>
+            <img id="info-image" src="" alt="Image" />
+            <div id="info-content">
+                <h2 id="info-header"></h2>
+                <p><strong>История:</strong><br> <span id="info-history"></span></p>
+                <p><strong>Описание обелиска:</strong><br> <span id="info-tourism"></span></p>
+                <p><strong>Адрес:</strong> <span id="info-address"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

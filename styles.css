@@ -1,0 +1,205 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#map-container {
+    flex: 5;
+    position: relative;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#route-container {
+    flex: 1;
+    background-color: #f8f8f8;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Стили для полей выбора точек */
+.route-point {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.route-point:hover {
+    border-color: #0073e6;
+}
+
+.route-point .selected-point {
+    color: #555;
+}
+
+/* Кнопки следуют за полями */
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+button {
+    background-color: #0fb500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e60000;
+}
+
+/* Стили для окна с информацией */
+#info-window {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+/* Фиксированный крестик в верхнем правом углу */
+#close-info {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Содержимое окна информации с отступом сверху */
+#info-window-content {
+    padding-top: 80px; /* Отступ сверху для крестика */
+}
+
+/* Стили для изображения */
+#info-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px; /* Отступ сверху для фотографии */
+}
+
+#info-header {
+    font-size: 24px;
+    color: #333;
+}
+
+#info-content p {
+    margin: 10px 0;
+    padding-bottom: 30px;
+    
+}
+
+/* Стили для выпадающего списка */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-height: 150px;  /* Ограничиваем высоту */
+    overflow-y: auto;   /* Включаем вертикальную прокрутку */
+    z-index: 100;
+}
+
+.dropdown input {
+    width: 90%;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ddd;
+}
+
+#shared-dropdown {
+    overflow-y: auto;
+    max-height: 200px; /* Ограничиваем высоту для прокрутки */
+}
+
+
+.dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown ul li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Поля и кнопки двигаются вместе */
+.form-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Стили для кружка */
+.point-circle {
+    width: 11px;       
+    height: 11px;      
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
+
+/* Общий стиль для контейнера с кружком и текстом */
+.route-point {
+    display: flex;
+    align-items: center; 
+    padding: 7px 15px;
+    gap: 10px; 
+    cursor: pointer;
+}
+
+/* Текст в поле выбора */
+.selected-point {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 16px;   
+    color: #333;       
+    font-weight: 500; 
+}
